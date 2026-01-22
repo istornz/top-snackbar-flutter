@@ -27,6 +27,7 @@ class TapBounceContainerState extends State<TapBounceContainer>
 
   @override
   void initState() {
+    super.initState();
     _controller = AnimationController(
       vsync: this,
       duration: animationDuration,
@@ -36,7 +37,6 @@ class TapBounceContainerState extends State<TapBounceContainer>
           setState(() {});
         }
       });
-    super.initState();
   }
 
   @override
