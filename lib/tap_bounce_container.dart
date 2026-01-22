@@ -67,18 +67,16 @@ class TapBounceContainerState extends State<TapBounceContainer>
   }
 
   Future<void> _onTapUp(TapUpDetails details) async {
-    await _closeSnackBar();
-  }
-
-  Future<void> _onPanEnd(DragEndDetails details) async {
-    await _closeSnackBar();
-  }
-
-  Future<void> _closeSnackBar() async {
     if (mounted) {
       unawaited(_controller.reverse());
       await Future.delayed(animationDuration);
       widget.onTap?.call();
+    }
+  }
+
+  void _onPanEnd(DragEndDetails details) {
+    if (mounted) {
+      _controller.reverse();
     }
   }
 }

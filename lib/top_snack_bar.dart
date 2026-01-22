@@ -255,12 +255,7 @@ class _TopSnackBarState extends State<_TopSnackBar> with SingleTickerProviderSta
         var childWidget = widget.child;
         for (final direction in widget.dismissDirections) {
           childWidget = TapBounceContainer(
-            onTap: () {
-              widget.onTap?.call();
-              if (!widget.persistent && mounted) {
-                _animationController.reverse();
-              }
-            },
+            onTap: widget.onTap,
             child: Dismissible(
               direction: direction,
               key: UniqueKey(),
